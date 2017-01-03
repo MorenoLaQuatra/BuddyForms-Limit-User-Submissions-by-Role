@@ -56,7 +56,7 @@ function buddyforms_lubr_user_can_edit($user_can_edit, $form_slug){
 						if( $user_post_count >=  $post_limit ) {
 							add_filter( 'buddyforms_user_can_edit_error_message', function ($post_limit) {
 
-								return __('You have reached your post limit for this form.', 'b uddyforms');
+								return __('You have reached your post limit for this form.', 'buddyforms');
 
 							});
 							$user_can_edit = false;
