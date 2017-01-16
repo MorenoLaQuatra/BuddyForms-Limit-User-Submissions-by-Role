@@ -28,25 +28,19 @@
  ****************************************************************************
  */
 
+add_action( 'buddyforms_user_can_edit', 'buddyforms_lubr_user_can_edit', 10, 3 );
 
-add_action( 'buddyforms_user_can_edit', 'buddyforms_lubr_user_can_edit', 10, 2 );
-
-
-function buddyforms_lubr_user_can_edit($user_can_edit, $form_slug){
+function buddyforms_lubr_user_can_edit($user_can_edit, $form_slug, $post_id){
 	global $buddyforms, $bf_form_error;
 
-
-//	$bf_form_error = 'laver nich';
+	if(! empty($post_id) ){
+		return $user_can_edit;
+	}
 
 	if( isset( $buddyforms[$form_slug]['limit_user_submissions_by_roles'] ) ){
 
 		$current_user   = wp_get_current_user();
 		$user_roles     = $current_user->roles;
-
-//		if ( current_user_can( 'buddyforms_' . $form_slug . '_create' ) ) {
-//			$user_can_edit = true;
-//		}
-
 
 		if( isset( $buddyforms[$form_slug]['limit_user_submissions_by_roles'] ) ){
 			foreach( $buddyforms[$form_slug]['limit_user_submissions_by_roles'] as $role_name => $post_limit ){
@@ -108,24 +102,11 @@ function buddyforms_lusbr_admin_settings_sidebar_metabox_html(){
 
 	}
 
-
-
-
-
 	$form_setup[] = new Element_Checkbox( "<b>" . __('Add this form as Profile Tab', 'buddyforms') . "</b>", "buddyforms_options[profiles_integration]", $roles, array('value' => $limit_user_submissions_by_roles, 'shortDesc' => __('Check das', 'buddyforms')));
 
 	buddyforms_display_field_group_table( $form_setup );
 }
 add_filter('add_meta_boxes','buddyforms_lusbr_admin_settings_sidebar_metabox');
-
-
-
-
-
-
-
-
-
 
 
 //
