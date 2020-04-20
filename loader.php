@@ -37,7 +37,7 @@ function buddyforms_lubr_user_can_edit( $user_can_edit, $form_slug, $post_id ) {
 
 		if ( isset( $buddyforms[ $form_slug ]['limit_user_submissions_by_roles'] ) ) {
 			foreach ( $buddyforms[ $form_slug ]['limit_user_submissions_by_roles'] as $role_name => $post_limit ) {
-				if ( $post_limit > 0 ) {
+				if ( $post_limit >= 0 ) {
 					if ( in_array( $role_name, (array) $user_roles ) ) {
 						$user_post_count = count_user_posts( $current_user->ID, $buddyforms[ $form_slug ]['post_type'] );
 						if ( $user_post_count >= $post_limit ) {
