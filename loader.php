@@ -42,8 +42,11 @@ function buddyforms_lubr_user_can_edit( $user_can_edit, $form_slug, $post_id ) {
 						$user_post_count = count_user_posts( $current_user->ID, $buddyforms[ $form_slug ]['post_type'] );
 						if ( $user_post_count >= $post_limit ) {
 							add_filter( 'buddyforms_user_can_edit_error_message', function ( $post_limit ) {
-
-								return __( 'You have reached your post limit for this form.', 'buddyforms' );
+								if ( $post_limit == 0 ) {
+									return __( 'Non hai il diritto di fare questa azione.', 'buddyforms' );
+								} else {
+									return __( 'Hai raggiunto il limite massimo di sottomissioni.', 'buddyforms' );
+								}
 
 							} );
 							$user_can_edit = false;
