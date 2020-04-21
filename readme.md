@@ -1,6 +1,8 @@
 
 # BuddyForms Limit User Submissions by Role
 
+Original version of the plugin can be found [here](https://github.com/BuddyForms/BuddyForms-Limit-User-Submissions-by-Role)
+
 - **Original Contributors:** svenl77, buddyforms
 - **Fork contributors:** MorenoLaQuatra
 - Tags: limit buddyforms submissions by role. 
