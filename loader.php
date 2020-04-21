@@ -27,6 +27,7 @@
  ****************************************************************************
  */
 
+
 function buddyforms_lubr_user_can_edit( $user_can_edit, $form_slug, $post_id ) {
 	global $buddyforms, $bf_form_error;
 
@@ -40,17 +41,17 @@ function buddyforms_lubr_user_can_edit( $user_can_edit, $form_slug, $post_id ) {
 				if ( $post_limit >= 0 ) {
 					if ( in_array( $role_name, (array) $user_roles ) ) {
 						$user_post_count = count_user_posts( $current_user->ID, $buddyforms[ $form_slug ]['post_type'] );
-						if ( $user_post_count >= $post_limit ) {
+						if ( $user_post_count >= $post_limit && $post_limit == 0) {
 							add_filter( 'buddyforms_user_can_edit_error_message', function ( $post_limit ) {
-								if ( $post_limit == 0 ) {
-									return __( 'Non hai il diritto di fare questa azione.', 'buddyforms' );
-								} else {
-									return __( 'Hai raggiunto il limite massimo di sottomissioni.', 'buddyforms' );
-								}
-
-							} );
-							$user_can_edit = false;
+								return __( 'Non hai il diritto di fare questa azione.', 'buddyforms' );
+							});
+						} else {
+							add_filter( 'buddyforms_user_can_edit_error_message', function ( $post_limit ) {
+								return __( 'Hai raggiunto il limite massimo di sottomissioni.', 'buddyforms' );
+							});
 						}
+						
+						$user_can_edit = false;
 					}
 				}
 			}
