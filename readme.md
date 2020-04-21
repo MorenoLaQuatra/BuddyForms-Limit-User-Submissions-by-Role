@@ -1,7 +1,9 @@
+
 # BuddyForms Limit User Submissions by Role
-- Contributors: svenl77, buddyforms
-- Partial modifications: MorenoLaQuatra
-- Tags: limit submissions
+
+- **Original Contributors:** svenl77, buddyforms
+- **Fork contributors:** MorenoLaQuatra
+- Tags: limit buddyforms submissions by role. 
 - Requires at least: 3.9
 - Tested up to: 4.7
 - Stable tag: 0.1
@@ -26,11 +28,13 @@ This plugin aim at limiting the maximum number of submissions of a BuddyForm For
 
 ## Installation 
 
-You can download and install BuddyForms Hook Fields using the built in WordPress plugin installer. If you download BuddyForms manually,
+This simple plugin extend some of BuddyForms capabilities. *It requires the original buddyform plugin.*
 
-make sure it is uploaded to "/wp-content/plugins/".
+ 1. Install <a href="http://buddyforms.com" target="_blank">BuddyForms</a>.
+ 2. Download this repository as zip file.
+ 3. Go to plugin section in Wordpress -> Add new -> Upload plugin
+ 4. Import the zip file.
 
-Activate BuddyForms Hook Fields in the "Plugins" admin panel using the "Activate" link. If you're using WordPress Multisite, you can optionally activate BuddyForms Hook Fields Network Wide.
 
 ## Frequently Asked Questions
 
@@ -40,12 +44,5 @@ You need the BuddyForms plugin installed for the plugin to work.
 
 ##  Support
 
-For this specific fork of the repository, please ask in the issue section. 
+For **this specific fork** of the repository, please ask in the issue section. 
 
-## Settings
-
-## Changelog
-
-### 0.1 
-
-### first beta 0.1 version
