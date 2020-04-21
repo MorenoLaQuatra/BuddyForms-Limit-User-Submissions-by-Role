@@ -44,5 +44,5 @@ You need the BuddyForms plugin installed for the plugin to work.
 
 ##  Support
 
-For **this specific fork** of the repository, please ask in the issue section. 
+For **this specific fork**, please ask in the issue section. 
 
